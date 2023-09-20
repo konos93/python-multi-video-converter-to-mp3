@@ -15,7 +15,7 @@ if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 
 def convert_file(input_path):
-    if input_path.endswith((".mp4", ".mp3", ".webm", ".mkv", ".avi", ".mov", ".flv", ".wav", ".aac", ".wma")):
+    if input_path.endswith((".mp4", ".mp3", ".webm", ".mkv", ".avi", ".mov", ".flv", ".wav", ".aac", ".wma", ".ts", ".3gp")):
         filename = os.path.basename(input_path)
         output_path = os.path.join(output_dir, os.path.splitext(filename)[0] + ".mp3")
         subprocess.call(['ffmpeg','-hwaccel', 'cuvid', '-i', input_path, '-vn', '-ar', '44100', '-ac', '1', '-b:a', '64k', output_path])
