@@ -3,7 +3,6 @@ import os
 import tkinter as tk
 from tkinter import filedialog
 import concurrent.futures
-import ffmpeg #if you have error have in the same folder ffmpeg
 
 root = tk.Tk()
 root.withdraw()
