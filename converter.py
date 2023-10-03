@@ -20,5 +20,5 @@ def convert_file(input_path):
         output_path = os.path.join(output_dir, os.path.splitext(filename)[0] + ".mp3")
         subprocess.call(['ffmpeg','-hwaccel', 'cuvid', '-i', input_path, '-vn', '-ar', '44100', '-ac', '1', '-b:a', '64k', output_path])
 
-with concurrent.futures.ThreadPoolExecutor() as executor:
+with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
     executor.map(convert_file, input_files)
